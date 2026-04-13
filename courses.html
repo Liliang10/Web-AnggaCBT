@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Courses Student</title>
+</head>
+<body class="bg-[#FBFAFF] font-sans antialiased">
+
+    <div class="flex min-h-screen">
+        <aside class="w-64 bg-white border-r border-gray-100 flex flex-col p-6 sticky top-0 h-screen">
+
+            <div class="flex items-center justify-center gap-2 font-bold text-lg mb-10">
+                <img src="images/logo.png" alt="logo" class="w-8">
+                <p>AnggaCBT</p>
+            </div>
+
+            <div class="flex flex-col gap-8 overflow-y-auto flex-1 custom-scrollbar pr-2">
+                <div>
+                    <p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-4">Daily Use</p>
+                    <ul class="flex flex-col gap-2">
+                        <li>
+                            <a href="#" class="flex items-center gap-3 p-3 text-gray-500 hover:text-[#6436F1] font-medium transition-all">
+                                <img src="images/overview.png" alt="" class="w-5"> Overview
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="flex items-center gap-3 p-3 bg-[#2B82FE] text-white rounded-full font-medium shadow-lg shadow-purple-100">
+                                <img src="images/courses.png" alt="" class="w-5"> Courses
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="flex items-center gap-3 p-3 text-gray-500 hover:text-[#6436F1] font-medium">
+                                <img src="images/certificates.png" alt="" class="w-5"> Certificates
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="flex items-center gap-3 p-3 text-gray-500 hover:text-[#6436F1] font-medium justify-between w-full">
+                                <div class="flex items-center gap-3">
+                                    <img src="images/messages.png" alt="" class="w-5"> Messages
+                                </div>
+                                <span class="bg-[#FF8137] text-white text-[10px] px-2 py-0.5 rounded-full">12</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="flex items-center gap-3 p-3 text-gray-500 hover:text-[#6436F1] font-medium">
+                                <img src="images/portfolio.png" alt="" class="w-5"> Portfolio
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-4">Others</p>
+                    <ul class="flex flex-col gap-2">
+                        <li><a href="#" class="flex items-center gap-3 p-3 text-gray-500 hover:text-[#6436F1] font-medium"><img src="images/rewards.png" class="w-5"> Rewards</a></li>
+                        <li><a href="#" class="flex items-center gap-3 p-3 text-gray-500 hover:text-[#6436F1] font-medium"><img src="images/plugins.png" class="w-5"> A.I Plugins</a></li>
+                        <li><a href="#" class="flex items-center gap-3 p-3 text-gray-500 hover:text-[#6436F1] font-medium"><img src="images/settings.png" class="w-5"> Settings</a></li>
+                        <li><a href="signIn.html" class="flex items-center gap-3 p-3 text-gray-500 hover:text-[#FF4C4C] font-medium"><img src="images/logout.png" class="w-5"> Logout</a></li>
+                    </ul>
+                </div>
+            </div>
+        </aside>
+
+        <main class="flex-1 flex flex-col">
+            <header class="bg-white p-6 flex items-center justify-between border-b border-gray-50">
+                <div class="relative w-96">
+                    <input type="text" placeholder="Search my courses or report..." class="w-full bg-[#F8F8FA] rounded-full py-3 px-6 outline-none text-sm border border-transparent focus:border-gray-200">
+                    <button class="absolute right-2 top-1.5 bg-[#6436F1] p-2 rounded-full shadow-md shadow-purple-200">
+                        <img src="images/search.png" alt="search" class="w-4 h-4">
+                    </button>
+                </div>
+
+                <div class="flex items-center gap-6">
+                    <div class="flex gap-3">
+                        <button class="w-10 h-10 flex items-center justify-center border border-gray-100 rounded-full hover:bg-gray-50"><img src="images/receipt.png" class="w-5"></button>
+                        <button class="w-10 h-10 flex items-center justify-center border border-gray-100 rounded-full hover:bg-gray-50"><img src="images/notification.png" class="w-5"></button>
+                    </div>
+                    <div class="flex items-center gap-3 border-l pl-6 border-gray-100">
+                        <div class="text-right">
+                            <p class="text-[10px] text-gray-400">Howdy</p>
+                            <p class="text-sm font-bold">Bondan Poro</p>
+                        </div>
+                        <img src="images/profile_picture.png" alt="profile" class="w-10 h-10 rounded-full object-cover">
+                    </div>
+                </div>
+            </header>
+
+            <section class="p-8">
+                <div class="mb-8">
+                    <h1 class="text-3xl font-extrabold text-[#121212]">My Courses</h1>
+                    <p class="text-gray-400 text-sm mt-2">Finish all given tests to grow</p>
+                </div>
+
+                <div class="w-full bg-white rounded-3xl p-2">
+                    <table class="w-full text-left border-separate border-spacing-y-4">
+                        <thead class="text-center align-middle">
+                            <tr class="text-gray-400 text-sm font-medium">
+                                <th class="px-6 pb-2 text-left">Course</th>
+                                <th class="px-6 pb-2">Date Created</th>
+                                <th class="px-6 pb-2">Category</th>
+                                <th class="px-6 pb-2">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-center align-middle">
+
+                            <tr class="group hover:bg-gray-50 transition-all">
+                                <td class="px-6 py-4 border-t border-gray-50 text-left">
+                                    <div class="flex items-center gap-4">
+                                        <img src="images/DigitalM101.png" alt="" class="w-16 h-12 rounded-xl object-cover">
+                                        <div>
+                                            <p class="font-bold text-sm">Digital Marketing 101</p>
+                                            <p class="text-xs text-gray-400">Beginners</p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 border-t border-gray-50 font-bold text-sm">11 March 2024</td>
+                                <td class="px-6 py-4 border-t border-gray-50">
+                                    <span class="bg-[#E0F2FF] text-[#2D9CDB] px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-tight">Marketing</span>
+                                </td>
+                                <td class="px-6 py-4 border-t border-gray-50">
+                                    <button class="bg-[#6436F1] text-white px-6 py-2 rounded-full text-xs font-bold shadow-lg shadow-purple-100 hover:scale-105 transition-transform"><a href="learning.html">Start Test</a></button>
+                                </td>
+                            </tr>
+
+                            <tr class="group hover:bg-gray-50 transition-all">
+                                <td class="px-6 py-4 border-t border-gray-50 text-left">
+                                    <div class="flex items-center gap-4">
+                                        <img src="images/UsabilityTesting.png" alt="" class="w-16 h-12 rounded-xl object-cover">
+                                        <div>
+                                            <p class="font-bold text-sm">Usability-Testing</p>
+                                            <p class="text-xs text-gray-400">Beginners</p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 border-t border-gray-50 font-bold text-sm">30 June 2024</td>
+                                <td class="px-6 py-4 border-t border-gray-50">
+                                    <span class="bg-[#FFF2E0] text-[#FF8137] px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-tight">Product Design</span>
+                                </td>
+                                <td class="px-6 py-4 border-t border-gray-50">
+                                    <a href="raportDetailPassed.html" class="inline-block">
+                                        <button class="bg-[#121212] text-white px-6 py-2 rounded-full text-xs font-bold hover:scale-105 transition-transform">
+                                            Rapport
+                                        </button>
+                                    </a>
+                                </td>
+                            </tr>
+
+                            <tr class="group hover:bg-gray-50 transition-all">
+                                <td class="px-6 py-4 border-t border-gray-50 text-left">
+                                    <div class="flex items-center gap-4">
+                                        <img src="images/WebDevelopment.png" alt="" class="w-16 h-12 rounded-xl object-cover">
+                                        <div>
+                                            <p class="font-bold text-sm">Web Development</p>
+                                            <p class="text-xs text-gray-400">Beginners</p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 border-t border-gray-50 font-bold text-sm">30 June 2024</td>
+                                <td class="px-6 py-4 border-t border-gray-50">
+                                    <span class="bg-[#E0E5FF] text-[#6436F1] px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-tight">Programming</span>
+                                </td>
+                                <td class="px-6 py-4 border-t border-gray-50">
+                                    <button class="bg-[#6436F1] text-white px-6 py-2 rounded-full text-xs font-bold shadow-lg shadow-purple-100 hover:scale-105 transition-transform">Start Test</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <style>
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #E2E8F0;
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #6436F1;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+    </style>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Sign up</title>
+</head>
+<body class="overflow-hidden">
+    <section class="fixed top-0 w-full z-50 px-4 md:px-8">
+        <nav class="max-w-6xl mx-auto bg-transparent mt-4 md:mt-6 flex items-center justify-between"> 
+            <div class="flex items-center gap-2 font-bold text-lg">
+                <img src="images/logo.png" alt="logo" class="">
+                <p>AnggaCBT</p>
+            </div>
+
+            <ul class="flex items-center space-x-8 text-white">
+                <li><a href="#">Docs</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Help</a></li>
+                <li><a href="signIn.html" class="px-6 py-2 bg-black rounded-full font-semibold">Sign In</a></li>
+            </ul>
+        </nav>
+    </section>
+
+    <main class="flex w-full h-screen">
+        <div class="w-1/2 flex flex-col justify-center items-center px-8">
+
+            <div class="w-full max-w-md md:mt-20">
+                <h3 class="text-xl font-bold mb-6">Sign up</h3>
+                <h4 class="font-medium mb-3">Complete Name</h4>
+                <div class="flex p-2 gap-2 border border-[#EEEEEE] rounded-3xl mb-6">
+                    <img src="images/profile.png" alt="profile">
+                    <input type="text" class="w-full outline-none" placeholder="Write your correct input here">
+                </div>
+
+                <h4 class="font-medium mb-3">Email Address</h4>
+                <div class="flex p-2 gap-2 border border-[#EEEEEE] rounded-3xl mb-6">
+                    <img src="images/email.png" alt="email">
+                    <input type="text" class="w-full outline-none" placeholder="Write your correct input here">
+                </div>
+
+                <h4 class="font-medium mb-3">Password</h4>
+                <div class="flex p-2 gap-2 border border-[#EEEEEE] rounded-3xl mb-6">
+                    <img src="images/lock.png" alt="password">
+                    <input type="password" class="w-full outline-none" placeholder="Write your correct input here">
+                </div>
+
+                <h4 class="font-medium mb-3">Confirm Password</h4>
+                <div class="flex p-2 gap-2 border border-[#EEEEEE] rounded-3xl mb-6">
+                    <img src="images/lock.png" alt="confirm password">
+                    <input type="password" class="w-full outline-none" placeholder="Write your correct input here">
+                </div>
+
+                <div class="flex p-2.5 bg-[#6436F1] border rounded-3xl justify-center text-white font-medium shadow-lg shadow-indigo-300">
+                    <button><a href="#">Create My Account</a></button>
+                </div>
+            </div>
+        </div>
+
+        <div class="w-1/2 bg-[#6436F1] relative flex flex-col justify-center items-center overflow-hidden">
+            <img src="images/sign-in.png" alt="sign in ilustration">
+            <div class="absolute bottom-12 -right-18.5 w-[120%]">
+                <ul class="flex items-center gap-12 text-white font-medium whitespace-nowrap">
+                    <li class="flex"><img src="images/Logoipsum1.png" alt="Logoipsum1">Logoipsum</li>
+                    <li class="flex"><img src="images/Logoipsum1.png" alt="Logoipsum1">Logoipsum</li>
+                    <li class="flex"><img src="images/Logoipsum2.png" alt="Logoipsum2">Logoipsum</li>
+                    <li class="flex"><img src="images/Logoipsum2.png" alt="Logoipsum2">Logoipsum</li>
+                    <li class="flex"><img src="images/Logoipsum1.png" alt="Logoipsum1">Logoipsum</li>
+                </ul>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

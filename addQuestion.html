@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Add Question - AnggaCBT</title>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+<body class="bg-[#FBFAFF] font-sans antialiased text-[#121212] overflow-x-hidden">
+
+    <div class="flex min-h-screen">
+        <aside class="w-64 bg-white border-r border-gray-100 flex flex-col p-6 sticky top-0 h-screen">
+            <div class="flex items-center justify-center gap-2 font-bold text-lg mb-10">
+                <img src="images/logo.png" alt="logo" class="w-8">
+                <p>AnggaCBT</p>
+            </div>
+
+            <div class="flex flex-col gap-8 overflow-y-auto flex-1 custom-scrollbar pr-2">
+                <div>
+                    <p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-4">Daily Use</p>
+                    <ul class="flex flex-col gap-2">
+                        <li>
+                            <a href="#" class="flex items-center gap-3 p-3 text-gray-500 hover:text-[#6436F1] font-medium transition-all">
+                                <img src="images/overview.png" alt="" class="w-5"> Overview
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="flex items-center gap-3 p-3 bg-[#2B82FE] text-white rounded-full font-medium shadow-lg shadow-blue-100">
+                                <img src="images/courses.png" alt="" class="w-5 filter brightness-0 invert"> Courses
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="flex items-center gap-3 p-3 text-gray-500 hover:text-[#6436F1] font-medium">
+                                <img src="images/certificates.png" alt="" class="w-5"> Certificates
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="flex items-center gap-3 p-3 text-gray-500 hover:text-[#6436F1] font-medium justify-between w-full">
+                                <div class="flex items-center gap-3">
+                                    <img src="images/messages.png" alt="" class="w-5"> Messages
+                                </div>
+                                <span class="bg-[#FF8137] text-white text-[10px] px-2 py-0.5 rounded-full">12</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="flex items-center gap-3 p-3 text-gray-500 hover:text-[#6436F1] font-medium">
+                                <img src="images/portfolio.png" alt="" class="w-5"> Portfolio
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-4">Others</p>
+                    <ul class="flex flex-col gap-2">
+                        <li><a href="#" class="flex items-center gap-3 p-3 text-gray-500 hover:text-[#6436F1] font-medium"><img src="images/rewards.png" class="w-5"> Rewards</a></li>
+                        <li><a href="#" class="flex items-center gap-3 p-3 text-gray-500 hover:text-[#6436F1] font-medium"><img src="images/plugins.png" class="w-5"> A.I Plugins</a></li>
+                        <li><a href="#" class="flex items-center gap-3 p-3 text-gray-500 hover:text-[#6436F1] font-medium"><img src="images/settings.png" class="w-5"> Settings</a></li>
+                        <li><a href="signIn.html" class="flex items-center gap-3 p-3 text-gray-500 hover:text-[#FF4C4C] font-medium"><img src="images/logout.png" class="w-5"> Logout</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="mt-6 bg-[#121212] rounded-3xl p-4 relative overflow-hidden group">
+                <div class="relative z-10 flex items-center gap-3">
+                    <img src="images/crown.png" alt="crown" class="w-12 h-12"> 
+                    <div>
+                        <p class="text-white font-bold text-sm">Get Pro</p>
+                        <p class="text-gray-400 text-[9px]">Unlock all features</p>
+                    </div>
+                </div>
+                <div class="absolute -right-5 -top-5 w-20 h-20 bg-[#6436F1] blur-[40px] opacity-30"></div>
+            </div>
+        </aside>
+
+        <main class="flex-1 flex flex-col">
+            <header class="bg-white p-6 flex items-center justify-between border-b border-gray-50">
+                <div class="relative w-96">
+                    <input type="text" placeholder="Search by report, student, etc..." class="w-full bg-[#F8F8FA] rounded-full py-3 px-6 outline-none text-sm border border-transparent focus:border-gray-200">
+                    <button class="absolute right-2 top-1.5 bg-[#6436F1] p-2 rounded-full shadow-md shadow-purple-200">
+                        <img src="images/search.png" alt="search" class="w-4 h-4 filter brightness-0 invert">
+                    </button>
+                </div>
+
+                <div class="flex items-center gap-6">
+                    <div class="flex items-center gap-3 border-l pl-6 border-gray-100">
+                        <div class="text-right">
+                            <p class="text-[10px] text-gray-400">Howdy</p>
+                            <p class="text-sm font-bold text-[#121212]">Fany Alqo</p>
+                        </div>
+                        <img src="images/profile_picture.png" alt="profile" class="w-10 h-10 rounded-full object-cover">
+                    </div>
+                </div>
+            </header>
+
+            <section class="p-8 w-full">
+                <nav class="flex items-center gap-3 text-sm text-gray-400 mb-8">
+                    <a href="#" class="hover:text-[#6436F1] transition-colors">Home</a>
+                    <span>/</span>
+                    <a href="manageCourses.html" class="hover:text-[#6436F1] transition-colors">Manage Courses</a>
+                    <span>/</span>
+                    <span class="text-[#121212] font-semibold">Course Details</span>
+                </nav>
+
+                <div class="flex items-center gap-6 mb-8">
+                    <div class="relative">
+                        <div class="w-24 h-24 bg-[#E0E9FF] rounded-full flex items-center justify-center overflow-hidden border-[6px] border-white shadow-sm">
+                            <img src="images/BigWebDevelopment.png" alt="Course Thumbnail" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                    <div>
+                        <h1 class="text-3xl font-extrabold text-[#121212]">Digital Marketing 101</h1>
+                    </div>
+                </div>
+
+                <form class="flex flex-col gap-8 max-w-xl">
+                    <div>
+                        <h2 class="text-xl font-bold mb-6">Add New Question</h2>
+                        
+                        <div class="flex flex-col gap-3 mb-6">
+                            <label class="font-bold text-sm text-[#121212]">Question</label>
+                            <div class="relative">
+                                <div class="absolute left-5 top-1/2 -translate-y-1/2">
+                                    <img src="images/note-text.png" class="w-6 h-6" alt="icon"> 
+                                </div>
+                                <input type="text" placeholder="Add your question here" 
+                                    class="w-full bg-white border-2 border-gray-200 rounded-full py-4 pl-14 pr-6 outline-none focus:border-[#6436F1] transition-all font-semibold">
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col gap-4">
+                            <label class="font-bold text-sm text-[#121212]">Answers</label>
+                            
+                            <div class="flex items-center justify-between gap-4 bg-white border border-gray-100 rounded-full">
+                                <div class="relative flex items-center gap-4 flex-1 p-4 border-2 border-gray-200 rounded-full transition-all focus-within:border-[#6436F1] focus-within:border-2">
+                                    <img src="images/edit.png" class="w-5 h-5 ml-2" alt="icon">
+                                    <input type="text" value="To reach untouched market" class="w-full outline-none font-medium text-sm bg-transparent">
+                                </div>
+                                <label class="flex items-center gap-2 cursor-pointer pr-4">
+                                    <input type="radio" name="correct_answer" class="hidden peer" checked>
+                                    <div class="w-5 h-5 border-2 border-gray-200 rounded-full peer-checked:bg-[#2B82FE] peer-checked:border-[#2B82FE] transition-all"></div>
+                                    <span class="text-sm font-bold text-[#121212]">Correct</span>
+                                </label>
+                            </div>
+
+                            <div class="flex items-center justify-between gap-4 bg-white border border-gray-100 rounded-full">
+                                <div class="relative flex items-center gap-4 flex-1 p-4 border-2 border-gray-200 rounded-full transition-all focus-within:border-[#6436F1] focus-within:border-2">
+                                    <img src="images/edit.png" class="w-5 h-5 ml-2" alt="icon">
+                                    <input type="text" value="Because you are matter" class="w-full outline-none font-medium text-sm bg-transparent">
+                                </div>
+                                <label class="flex items-center gap-2 cursor-pointer pr-4">
+                                    <input type="radio" name="correct_answer" class="hidden peer">
+                                    <div class="w-5 h-5 border-2 border-gray-200 rounded-full peer-checked:bg-[#2B82FE] peer-checked:border-[#2B82FE] transition-all"></div>
+                                    <span class="text-sm font-bold text-[#121212]">Correct</span>
+                                </label>
+                            </div>
+
+                            <div class="flex items-center justify-between gap-4 bg-white border border-gray-100 rounded-full">
+                                <div class="relative flex items-center gap-4 flex-1 p-4 border-2 border-gray-200 rounded-full transition-all focus-within:border-[#6436F1] focus-within:border-2">
+                                    <img src="images/edit.png" class="w-5 h-5 ml-2" alt="icon">
+                                    <input type="text" value="Write better answer option" class="w-full outline-none font-medium text-sm bg-transparent">
+                                </div>
+                                <label class="flex items-center gap-2 cursor-pointer pr-4">
+                                    <input type="radio" name="correct_answer" class="hidden peer">
+                                    <div class="w-5 h-5 border-2 border-gray-200 rounded-full peer-checked:bg-[#2B82FE] peer-checked:border-[#2B82FE] transition-all"></div>
+                                    <span class="text-sm font-bold text-[#121212]">Correct</span>
+                                </label>
+                            </div>
+
+                            <div class="flex items-center justify-between gap-4 bg-white border border-gray-100 rounded-full">
+                                <div class="relative flex items-center gap-4 flex-1 p-4 border-2 border-gray-200 rounded-full transition-all focus-within:border-[#6436F1] focus-within:border-2">
+                                    <img src="images/edit.png" class="w-5 h-5 ml-2" alt="icon">
+                                    <input type="text" value="Because you are matter" class="w-full outline-none font-medium text-sm bg-transparent">
+                                </div>
+                                <label class="flex items-center gap-2 cursor-pointer pr-4">
+                                    <input type="radio" name="correct_answer" class="hidden peer">
+                                    <div class="w-5 h-5 border-2 border-gray-200 rounded-full peer-checked:bg-[#2B82FE] peer-checked:border-[#2B82FE] transition-all"></div>
+                                    <span class="text-sm font-bold text-[#121212]">Correct</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex mt-4">
+                        <button type="submit" class="w-full max-w-md bg-[#6436F1] text-white py-3 rounded-full font-bold text-sm shadow-lg shadow-purple-100 hover:bg-[#5229D1] transition-all">
+                            Save Question
+                        </button>
+                    </div>
+                </form>
+            </section>
+        </main>
+    </div>
+
+    <style>
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #E2E8F0;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #6436F1;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+    </style>
+</body>
+</html>
