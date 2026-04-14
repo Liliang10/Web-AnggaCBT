@@ -4,52 +4,57 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
-    <title>Learning Finish</title>
+    <title>Test Finished - AnggaCBT</title>
 </head>
-<body>
-    <section class="top-0 w-full z-50 px-4 md:px-8">
-        <nav class="max-w-6xl mx-auto bg-transparent mt-4 md:mt-6 flex items-center justify-between"> 
-            <div class="flex items-center gap-4">
-            <img src="images/WebDevelopment.png" alt="" class="w-12 h-8 rounded-xl object-cover">
-                <div>
-                    <p class="font-bold text-sm">Digital Marketing 101</p>
-                    <p class="text-xs text-gray-400">Beginners</p>
+<body class="bg-[#FBFAFF] font-sans antialiased text-[#121212]">
+
+    <section class="fixed top-0 w-full z-50 bg-[#FBFAFF]/80 backdrop-blur-md px-4 md:px-8">
+        <nav class="max-w-6xl mx-auto py-4 md:py-6 flex items-center justify-between"> 
+            <div class="flex items-center gap-3 md:gap-4 overflow-hidden">
+                <img src="images/WebDevelopment.png" alt="course thumbnail" class="w-10 h-7 md:w-12 md:h-8 rounded-lg object-cover flex-shrink-0">
+                <div class="truncate">
+                    <p class="font-bold text-xs md:text-sm truncate">Digital Marketing 101</p>
+                    <p class="text-[10px] md:text-xs text-gray-400">Beginners</p>
                 </div>
             </div>
 
-            <div class="flex items-center gap-3 border-l pl-6 border-gray-100">
-                <div class="text-right">
-                    <p class="text-[10px] text-gray-400">Howdy</p>
-                    <p class="text-sm font-bold">Bondan Poro</p>
+            <div class="flex items-center gap-2 md:gap-3 border-l pl-4 md:pl-6 border-gray-200">
+                <div class="text-right hidden sm:block">
+                    <p class="text-[10px] text-gray-400 leading-none">Howdy</p>
+                    <p class="text-xs md:text-sm font-bold">Bondan Poro</p>
                 </div>
-                <img src="images/profile_picture.png" alt="profile" class="w-10 h-10 rounded-full object-cover">
+                <img src="images/profile_picture.png" alt="profile" class="w-8 h-8 md:w-10 md:h-10 rounded-full object-cover shadow-sm">
             </div>
         </nav>
+    </section>
 
-        <main class="flex flex-col items-center justify-center text-center min-h-[80vh] px-4">
-            <div class="max-w-md">
-                <div class="mb-8 flex justify-center">
-                    <img src="images/BigWebDevelopment.png" alt="Success Illustration" class="w-48 h-48 object-contain">
-                </div>
-
-                <h2 class="text-2xl md:text-3xl font-extrabold text-slate-900 mb-4">
-                    Congratulations!<br>
-                    You Have Finished Test
-                </h2>
-
-                <p class="text-gray-400 leading-relaxed mb-10">
-                    Hopefully you will get a better result to prepare your great future career soon enough
-                </p>
-
-                <div class="flex justify-center">
-                    <a href="raportDetail.html" class="inline-block">
-                        <button class="bg-[#6347F9] hover:bg-indigo-700 text-white font-bold py-4 px-12 rounded-full shadow-xl shadow-indigo-200 transition-all">
-                            View Test Result
-                        </button>
-                    </a>
+    <main class="min-h-screen flex flex-col items-center justify-center px-6 py-20">
+        <div class="max-w-md w-full text-center">
+            <div class="mb-6 md:mb-10 flex justify-center">
+                <div class="relative">
+                    <div class="absolute inset-0 bg-indigo-100 rounded-full blur-3xl opacity-30 scale-150"></div>
+                    <img src="images/BigWebDevelopment.png" alt="Success Illustration" class="relative w-40 h-40 md:w-56 md:h-56 object-contain drop-shadow-2xl">
                 </div>
             </div>
-        </main>
-    </section>
+
+            <h2 class="text-2xl md:text-4xl font-extrabold text-slate-900 mb-4 leading-tight">
+                Congratulations!<br>
+                You Have Finished Test
+            </h2>
+
+            <p class="text-sm md:text-base text-gray-400 leading-relaxed mb-10 px-2 md:px-0">
+                Hopefully you will get a better result to prepare your great future career soon enough.
+            </p>
+
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
+                <a href="raportDetail.html" class="w-full sm:w-auto">
+                    <button class="w-full sm:w-auto bg-[#6347F9] hover:bg-[#5236E5] text-white font-bold py-4 px-12 rounded-full shadow-xl shadow-indigo-200 hover:shadow-indigo-300 transition-all active:scale-95">
+                        View Test Result
+                    </button>
+                </a>
+            </div>
+        </div>
+    </main>
+
 </body>
 </html>
