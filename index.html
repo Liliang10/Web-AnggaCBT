@@ -6,67 +6,77 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <title>Sign up</title>
 </head>
-<body class="overflow-hidden">
+<body class="overflow-x-hidden md:overflow-hidden font-sans antialiased text-[#121212]">
+    
     <section class="fixed top-0 w-full z-50 px-4 md:px-8">
         <nav class="max-w-6xl mx-auto bg-transparent mt-4 md:mt-6 flex items-center justify-between"> 
             <div class="flex items-center gap-2 font-bold text-lg">
-                <img src="images/logo.png" alt="logo" class="">
+                <img src="images/logo.png" alt="logo" class="w-8">
                 <p>AnggaCBT</p>
             </div>
 
-            <ul class="flex items-center space-x-8 text-white">
-                <li><a href="#">Docs</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Help</a></li>
-                <li><a href="signIn.html" class="px-6 py-2 bg-black rounded-full font-semibold">Sign In</a></li>
-            </ul>
+            <div class="flex items-center gap-4 md:gap-8">
+                <ul class="hidden md:flex items-center space-x-8 text-white">
+                    <li><a href="#" class="hover:underline">Docs</a></li>
+                    <li><a href="#" class="hover:underline">About</a></li>
+                    <li><a href="#" class="hover:underline">Help</a></li>
+                </ul>
+                <a href="signIn.html" class="px-6 py-2 bg-black text-white rounded-full font-semibold text-sm md:text-base hover:scale-105 transition-all shadow-md">
+                    Sign In
+                </a>
+            </div>
         </nav>
     </section>
 
-    <main class="flex w-full h-screen">
-        <div class="w-1/2 flex flex-col justify-center items-center px-8">
+    <main class="flex w-full min-h-screen">
+        
+        <div class="w-full md:w-1/2 flex flex-col justify-center items-center px-6 md:px-8 pt-28 md:pt-0 pb-12 md:pb-0">
 
             <div class="w-full max-w-md md:mt-20">
-                <h3 class="text-xl font-bold mb-6">Sign up</h3>
-                <h4 class="font-medium mb-3">Complete Name</h4>
-                <div class="flex p-2 gap-2 border border-[#EEEEEE] rounded-3xl mb-6">
-                    <img src="images/profile.png" alt="profile">
-                    <input type="text" class="w-full outline-none" placeholder="Write your correct input here">
+                <h3 class="text-2xl md:text-xl font-bold mb-6 text-center md:text-left">Sign up</h3>
+                
+                <h4 class="font-medium mb-3 text-sm md:text-base">Complete Name</h4>
+                <div class="flex items-center p-2 gap-3 border border-[#EEEEEE] rounded-full mb-6 focus-within:border-[#6436F1] transition-all">
+                    <img src="images/profile.png" alt="profile" class="w-5 h-5 ml-2">
+                    <input type="text" class="w-full outline-none bg-transparent" placeholder="Write your full name">
                 </div>
 
-                <h4 class="font-medium mb-3">Email Address</h4>
-                <div class="flex p-2 gap-2 border border-[#EEEEEE] rounded-3xl mb-6">
-                    <img src="images/email.png" alt="email">
-                    <input type="text" class="w-full outline-none" placeholder="Write your correct input here">
+                <h4 class="font-medium mb-3 text-sm md:text-base">Email Address</h4>
+                <div class="flex items-center p-2 gap-3 border border-[#EEEEEE] rounded-full mb-6 focus-within:border-[#6436F1] transition-all">
+                    <img src="images/email.png" alt="email" class="w-5 h-5 ml-2">
+                    <input type="email" class="w-full outline-none bg-transparent" placeholder="Write your email address">
                 </div>
 
-                <h4 class="font-medium mb-3">Password</h4>
-                <div class="flex p-2 gap-2 border border-[#EEEEEE] rounded-3xl mb-6">
-                    <img src="images/lock.png" alt="password">
-                    <input type="password" class="w-full outline-none" placeholder="Write your correct input here">
+                <h4 class="font-medium mb-3 text-sm md:text-base">Password</h4>
+                <div class="flex items-center p-2 gap-3 border border-[#EEEEEE] rounded-full mb-6 focus-within:border-[#6436F1] transition-all">
+                    <img src="images/lock.png" alt="password" class="w-5 h-5 ml-2">
+                    <input type="password" class="w-full outline-none bg-transparent" placeholder="Write your password">
                 </div>
 
-                <h4 class="font-medium mb-3">Confirm Password</h4>
-                <div class="flex p-2 gap-2 border border-[#EEEEEE] rounded-3xl mb-6">
-                    <img src="images/lock.png" alt="confirm password">
-                    <input type="password" class="w-full outline-none" placeholder="Write your correct input here">
+                <h4 class="font-medium mb-3 text-sm md:text-base">Confirm Password</h4>
+                <div class="flex items-center p-2 gap-3 border border-[#EEEEEE] rounded-full mb-8 focus-within:border-[#6436F1] transition-all">
+                    <img src="images/lock.png" alt="confirm password" class="w-5 h-5 ml-2">
+                    <input type="password" class="w-full outline-none bg-transparent" placeholder="Confirm your password">
                 </div>
 
-                <div class="flex p-2.5 bg-[#6436F1] border rounded-3xl justify-center text-white font-medium shadow-lg shadow-indigo-300">
-                    <button><a href="#">Create My Account</a></button>
-                </div>
+                <a href="#" class="block w-full">
+                    <button class="w-full py-4 bg-[#6436F1] rounded-full text-white font-bold shadow-lg shadow-indigo-300 hover:bg-[#5229D1] transition-all">
+                        Create My Account
+                    </button>
+                </a>
             </div>
         </div>
 
-        <div class="w-1/2 bg-[#6436F1] relative flex flex-col justify-center items-center overflow-hidden">
-            <img src="images/sign-in.png" alt="sign in ilustration">
-            <div class="absolute bottom-12 -right-18.5 w-[120%]">
-                <ul class="flex items-center gap-12 text-white font-medium whitespace-nowrap">
-                    <li class="flex"><img src="images/Logoipsum1.png" alt="Logoipsum1">Logoipsum</li>
-                    <li class="flex"><img src="images/Logoipsum1.png" alt="Logoipsum1">Logoipsum</li>
-                    <li class="flex"><img src="images/Logoipsum2.png" alt="Logoipsum2">Logoipsum</li>
-                    <li class="flex"><img src="images/Logoipsum2.png" alt="Logoipsum2">Logoipsum</li>
-                    <li class="flex"><img src="images/Logoipsum1.png" alt="Logoipsum1">Logoipsum</li>
+        <div class="hidden md:flex w-1/2 bg-[#6436F1] relative flex-col justify-center items-center overflow-hidden">
+            <img src="images/sign-in.png" alt="sign in ilustration" class="w-3/4 max-w-lg relative z-10 hover:scale-105 transition-transform duration-500">
+            
+            <div class="absolute bottom-12 -right-18 w-[120%] z-0">
+                <ul class="flex items-center justify-center gap-12 text-white font-medium whitespace-nowrap opacity-80">
+                    <li class="flex items-center gap-2"><img src="images/Logoipsum1.png" alt="Logoipsum1" class="w-6 filter brightness-0 invert">Logoipsum</li>
+                    <li class="flex items-center gap-2"><img src="images/Logoipsum1.png" alt="Logoipsum1" class="w-6 filter brightness-0 invert">Logoipsum</li>
+                    <li class="flex items-center gap-2"><img src="images/Logoipsum2.png" alt="Logoipsum2" class="w-6 filter brightness-0 invert">Logoipsum</li>
+                    <li class="flex items-center gap-2"><img src="images/Logoipsum2.png" alt="Logoipsum2" class="w-6 filter brightness-0 invert">Logoipsum</li>
+                    <li class="flex items-center gap-2"><img src="images/Logoipsum1.png" alt="Logoipsum1" class="w-6 filter brightness-0 invert">Logoipsum</li>
                 </ul>
             </div>
         </div>
