@@ -4,16 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
-    <title>Courses Student</title>
+    <title>My Courses - AnggaCBT</title>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </head>
-<body class="bg-[#FBFAFF] font-sans antialiased">
+<body class="bg-[#FBFAFF] font-sans antialiased text-[#121212] overflow-x-hidden" x-data="{ isOpen: false }">
 
     <div class="flex min-h-screen">
-        <aside class="w-64 bg-white border-r border-gray-100 flex flex-col p-6 sticky top-0 h-screen">
+        <aside 
+            :class="isOpen ? 'translate-x-0' : '-translate-x-full'"
+            class="fixed inset-y-0 left-0 z-50 w-64 bg-white border-r border-gray-100 flex flex-col p-6 transition-transform duration-300 md:translate-x-0 md:relative md:sticky md:top-0 md:h-screen">
 
-            <div class="flex items-center justify-center gap-2 font-bold text-lg mb-10">
-                <img src="images/logo.png" alt="logo" class="w-8">
-                <p>AnggaCBT</p>
+            <div class="flex items-center justify-between md:justify-center gap-2 font-bold text-lg mb-10">
+                <div class="flex items-center gap-2">
+                    <img src="images/logo.png" alt="logo" class="w-8">
+                    <p>AnggaCBT</p>
+                </div>
+                <button @click="isOpen = false" class="md:hidden text-gray-400">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
             </div>
 
             <div class="flex flex-col gap-8 overflow-y-auto flex-1 custom-scrollbar pr-2">
@@ -31,7 +39,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#" class="flex items-center gap-3 p-3 text-gray-500 hover:text-[#6436F1] font-medium">
+                            <a href="#" class="flex items-center gap-3 p-3 text-gray-500 hover:text-[#6436F1] font-medium transition-all">
                                 <img src="images/certificates.png" alt="" class="w-5"> Certificates
                             </a>
                         </li>
@@ -44,7 +52,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#" class="flex items-center gap-3 p-3 text-gray-500 hover:text-[#6436F1] font-medium">
+                            <a href="#" class="flex items-center gap-3 p-3 text-gray-500 hover:text-[#6436F1] font-medium transition-all">
                                 <img src="images/portfolio.png" alt="" class="w-5"> Portfolio
                             </a>
                         </li>
@@ -63,134 +71,175 @@
             </div>
         </aside>
 
-        <main class="flex-1 flex flex-col">
-            <header class="bg-white p-6 flex items-center justify-between border-b border-gray-50">
-                <div class="relative w-96">
-                    <input type="text" placeholder="Search my courses or report..." class="w-full bg-[#F8F8FA] rounded-full py-3 px-6 outline-none text-sm border border-transparent focus:border-gray-200">
-                    <button class="absolute right-2 top-1.5 bg-[#6436F1] p-2 rounded-full shadow-md shadow-purple-200">
-                        <img src="images/search.png" alt="search" class="w-4 h-4">
+        <div x-show="isOpen" @click="isOpen = false" class="fixed inset-0 bg-black/50 z-40 md:hidden" x-transition.opacity></div>
+
+        <main class="flex-1 w-full flex flex-col min-w-0">
+            <header class="bg-white p-4 md:p-6 flex items-center justify-between border-b border-gray-50 gap-2 md:gap-4">
+                <div class="flex items-center gap-2 md:gap-4 flex-1">
+                    <button @click="isOpen = true" class="md:hidden p-2 bg-gray-50 rounded-lg shrink-0">
+                        <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                        </svg>
                     </button>
+                    
+                    <div class="relative w-full max-w-[160px] sm:max-w-xs md:max-w-sm lg:max-w-md">
+                        <input type="text" placeholder="Search..." 
+                            class="w-full bg-[#F8F8FA] rounded-full py-2 pl-4 pr-10 outline-none text-xs sm:text-sm border border-transparent focus:border-gray-200">
+                        <button class="absolute right-1.5 top-1 bg-[#6436F1] p-1.5 rounded-full">
+                            <img src="images/search.png" alt="search" class="w-3 h-3">
+                        </button>
+                    </div>
                 </div>
 
-                <div class="flex items-center gap-6">
-                    <div class="flex gap-3">
-                        <button class="w-10 h-10 flex items-center justify-center border border-gray-100 rounded-full hover:bg-gray-50"><img src="images/receipt.png" class="w-5"></button>
-                        <button class="w-10 h-10 flex items-center justify-center border border-gray-100 rounded-full hover:bg-gray-50"><img src="images/notification.png" class="w-5"></button>
+                <div class="flex items-center gap-2 md:gap-6 shrink-0">
+                    <div class="flex gap-1 md:gap-3">
+                        <button class="w-8 h-8 md:w-9 md:h-9 flex items-center justify-center border border-gray-100 rounded-full hover:bg-gray-50">
+                            <img src="images/receipt.png" class="w-3.5 md:w-4">
+                        </button>
+                        <button class="w-8 h-8 md:w-9 md:h-9 flex items-center justify-center border border-gray-100 rounded-full hover:bg-gray-50">
+                            <img src="images/notification.png" class="w-3.5 md:w-4">
+                        </button>
                     </div>
-                    <div class="flex items-center gap-3 border-l pl-6 border-gray-100">
+
+                    <div class="flex items-center gap-2 md:gap-3 border-l pl-2 md:pl-4 border-gray-100">
                         <div class="text-right">
-                            <p class="text-[10px] text-gray-400">Howdy</p>
-                            <p class="text-sm font-bold">Bondan Poro</p>
+                            <p class="text-[10px] text-gray-400 hidden sm:block">Howdy</p>
+                            <p class="text-[11px] sm:text-sm font-bold leading-tight">Bondan Poro</p>
                         </div>
-                        <img src="images/profile_picture.png" alt="profile" class="w-10 h-10 rounded-full object-cover">
+                        <img src="images/profile_picture.png" alt="profile" class="w-8 h-8 md:w-9 md:h-9 rounded-full object-cover">
                     </div>
                 </div>
             </header>
 
-            <section class="p-8">
+            <section class="p-4 md:p-8">
                 <div class="mb-8">
-                    <h1 class="text-3xl font-extrabold text-[#121212]">My Courses</h1>
-                    <p class="text-gray-400 text-sm mt-2">Finish all given tests to grow</p>
+                    <h1 class="text-2xl md:text-3xl font-extrabold text-[#121212]">My Courses</h1>
+                    <p class="text-gray-400 text-sm mt-1">Finish all given tests to grow</p>
                 </div>
 
-                <div class="w-full bg-white rounded-3xl p-2">
+                <div class="hidden md:block bg-white rounded-3xl p-2 shadow-sm border border-gray-50 overflow-hidden">
                     <table class="w-full text-left border-separate border-spacing-y-4">
-                        <thead class="text-center align-middle">
+                        <thead>
                             <tr class="text-gray-400 text-sm font-medium">
-                                <th class="px-6 pb-2 text-left">Course</th>
-                                <th class="px-6 pb-2">Date Created</th>
-                                <th class="px-6 pb-2">Category</th>
-                                <th class="px-6 pb-2">Action</th>
+                                <th class="px-6 pb-2">Course</th>
+                                <th class="px-6 pb-2 text-center">Date Created</th>
+                                <th class="px-6 pb-2 text-center">Category</th>
+                                <th class="px-6 pb-2 text-center">Action</th>
                             </tr>
                         </thead>
-                        <tbody class="text-center align-middle">
-
+                        <tbody>
                             <tr class="group hover:bg-gray-50 transition-all">
-                                <td class="px-6 py-4 border-t border-gray-50 text-left">
+                                <td class="px-6 py-4 border-t border-gray-50">
                                     <div class="flex items-center gap-4">
-                                        <img src="images/DigitalM101.png" alt="" class="w-16 h-12 rounded-xl object-cover">
+                                        <img src="images/DigitalM101.png" class="w-16 h-12 rounded-xl object-cover">
                                         <div>
                                             <p class="font-bold text-sm">Digital Marketing 101</p>
                                             <p class="text-xs text-gray-400">Beginners</p>
                                         </div>
                                     </div>
                                 </td>
-                                <td class="px-6 py-4 border-t border-gray-50 font-bold text-sm">11 March 2024</td>
-                                <td class="px-6 py-4 border-t border-gray-50">
-                                    <span class="bg-[#E0F2FF] text-[#2D9CDB] px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-tight">Marketing</span>
+                                <td class="px-6 py-4 border-t border-gray-50 text-center font-bold text-sm">11 March 2024</td>
+                                <td class="px-6 py-4 border-t border-gray-50 text-center">
+                                    <span class="bg-[#E0F2FF] text-[#2D9CDB] px-4 py-1.5 rounded-full text-[10px] font-bold uppercase">Marketing</span>
                                 </td>
-                                <td class="px-6 py-4 border-t border-gray-50">
-                                    <button class="bg-[#6436F1] text-white px-6 py-2 rounded-full text-xs font-bold shadow-lg shadow-purple-100 hover:scale-105 transition-transform"><a href="learning.html">Start Test</a></button>
+                                <td class="px-6 py-4 border-t border-gray-50 text-center">
+                                    <a href="learning.html" class="bg-[#6436F1] text-white px-6 py-2 rounded-full text-xs font-bold shadow-lg shadow-purple-100 hover:scale-105 transition-all">Start Test</a>
                                 </td>
                             </tr>
-
                             <tr class="group hover:bg-gray-50 transition-all">
-                                <td class="px-6 py-4 border-t border-gray-50 text-left">
+                                <td class="px-6 py-4 border-t border-gray-50">
                                     <div class="flex items-center gap-4">
-                                        <img src="images/UsabilityTesting.png" alt="" class="w-16 h-12 rounded-xl object-cover">
+                                        <img src="images/UsabilityTesting.png" class="w-16 h-12 rounded-xl object-cover">
                                         <div>
                                             <p class="font-bold text-sm">Usability-Testing</p>
                                             <p class="text-xs text-gray-400">Beginners</p>
                                         </div>
                                     </div>
                                 </td>
-                                <td class="px-6 py-4 border-t border-gray-50 font-bold text-sm">30 June 2024</td>
-                                <td class="px-6 py-4 border-t border-gray-50">
-                                    <span class="bg-[#FFF2E0] text-[#FF8137] px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-tight">Product Design</span>
+                                <td class="px-6 py-4 border-t border-gray-50 text-center font-bold text-sm">30 June 2024</td>
+                                <td class="px-6 py-4 border-t border-gray-50 text-center">
+                                    <span class="bg-[#FFF2E0] text-[#FF8137] px-4 py-1.5 rounded-full text-[10px] font-bold uppercase">Product Design</span>
                                 </td>
-                                <td class="px-6 py-4 border-t border-gray-50">
-                                    <a href="raportDetailPassed.html" class="inline-block">
-                                        <button class="bg-[#121212] text-white px-6 py-2 rounded-full text-xs font-bold hover:scale-105 transition-transform">
-                                            Rapport
-                                        </button>
-                                    </a>
+                                <td class="px-6 py-4 border-t border-gray-50 text-center">
+                                    <a href="raportDetailPassed.html" class="bg-[#121212] text-white px-6 py-2 rounded-full text-xs font-bold hover:scale-105 transition-all">Rapport</a>
                                 </td>
                             </tr>
-
                             <tr class="group hover:bg-gray-50 transition-all">
                                 <td class="px-6 py-4 border-t border-gray-50 text-left">
                                     <div class="flex items-center gap-4">
-                                        <img src="images/WebDevelopment.png" alt="" class="w-16 h-12 rounded-xl object-cover">
+                                        <img src="images/WebDevelopment.png" class="w-16 h-12 rounded-xl object-cover">
                                         <div>
                                             <p class="font-bold text-sm">Web Development</p>
                                             <p class="text-xs text-gray-400">Beginners</p>
                                         </div>
                                     </div>
                                 </td>
-                                <td class="px-6 py-4 border-t border-gray-50 font-bold text-sm">30 June 2024</td>
-                                <td class="px-6 py-4 border-t border-gray-50">
-                                    <span class="bg-[#E0E5FF] text-[#6436F1] px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-tight">Programming</span>
+                                <td class="px-6 py-4 border-t border-gray-50 text-center font-bold text-sm">30 June 2024</td>
+                                <td class="px-6 py-4 border-t border-gray-50 text-center">
+                                    <span class="bg-[#E0E5FF] text-[#6436F1] px-4 py-1.5 rounded-full text-[10px] font-bold uppercase">Programming</span>
                                 </td>
-                                <td class="px-6 py-4 border-t border-gray-50">
-                                    <button class="bg-[#6436F1] text-white px-6 py-2 rounded-full text-xs font-bold shadow-lg shadow-purple-100 hover:scale-105 transition-transform">Start Test</button>
+                                <td class="px-6 py-4 border-t border-gray-50 text-center">
+                                    <a href="#.html" class="bg-[#6436F1] text-white px-6 py-2 rounded-full text-xs font-bold hover:scale-105 transition-all">Start Test</a>
                                 </td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
+
+                <div class="grid grid-cols-1 gap-4 md:hidden">
+                    <div class="bg-white p-5 rounded-3xl border border-gray-50 shadow-sm flex flex-col gap-4">
+                        <div class="flex items-center gap-4">
+                            <img src="images/DigitalM101.png" class="w-16 h-14 rounded-2xl object-cover">
+                            <div>
+                                <p class="font-extrabold text-base">Digital Marketing 101</p>
+                                <p class="text-xs text-gray-400">Beginners • 11 March 2024</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between pt-2 border-t border-gray-50">
+                            <span class="bg-[#E0F2FF] text-[#2D9CDB] px-3 py-1 rounded-full text-[10px] font-bold uppercase">Marketing</span>
+                            <a href="learning.html" class="bg-[#6436F1] text-white px-6 py-2 rounded-full text-xs font-bold">Start Test</a>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-5 rounded-3xl border border-gray-50 shadow-sm flex flex-col gap-4">
+                        <div class="flex items-center gap-4">
+                            <img src="images/UsabilityTesting.png" class="w-16 h-14 rounded-2xl object-cover">
+                            <div>
+                                <p class="font-extrabold text-base">Usability-Testing</p>
+                                <p class="text-xs text-gray-400">Beginners • 30 June 2024</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between pt-2 border-t border-gray-50">
+                            <span class="bg-[#FFF2E0] text-[#FF8137] px-3 py-1 rounded-full text-[10px] font-bold uppercase">Product Design</span>
+                            <a href="raportDetailPassed.html" class="bg-[#121212] text-white px-6 py-2 rounded-full text-xs font-bold">Rapport</a>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-5 rounded-3xl border border-gray-50 shadow-sm flex flex-col gap-4">
+                        <div class="flex items-center gap-4">
+                            <img src="images/WebDevelopment.png" class="w-16 h-14 rounded-2xl object-cover">
+                            <div>
+                                <p class="font-extrabold text-base">Web Development</p>
+                                <p class="text-xs text-gray-400">Beginners • 30 June 2024</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between pt-2 border-t border-gray-50">
+                            <span class="bg-[#E0E5FF] text-[#6436F1] px-3 py-1 rounded-full text-[10px] font-bold uppercase">Programming</span>
+                            <a href="raportDetailPassed.html" class="bg-[#6436F1] text-white px-6 py-2 rounded-full text-xs font-bold">Start Test</a>
+                        </div>
+                    </div>
+                </div>
+
             </section>
         </main>
     </div>
 
     <style>
-        ::-webkit-scrollbar {
-            width: 6px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: transparent;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: #E2E8F0;
-            border-radius: 10px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: #6436F1;
-        }
         .custom-scrollbar::-webkit-scrollbar {
-            width: 4px;
+            width: 4px; 
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #E2E8F0; border-radius: 10px;
         }
     </style>
 </body>
