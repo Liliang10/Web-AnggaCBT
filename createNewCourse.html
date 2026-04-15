@@ -4,29 +4,61 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
-    <title>Create New Course</title>
+    <title>Create New Course - AnggaCBT</title>
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </head>
-<body class="bg-[#FBFAFF] font-sans antialiased text-[#121212]">
+<body class="bg-[#FBFAFF] font-sans antialiased text-[#121212]" x-data="{ sideBarOpen: false }">
 
     <div class="flex min-h-screen">
-        <aside class="w-64 bg-white border-r border-gray-100 flex flex-col p-6 sticky top-0 h-screen">
-            <div class="flex items-center justify-center gap-2 font-bold text-lg mb-10">
-                <img src="images/logo.png" alt="logo" class="w-8">
-                <p>AnggaCBT</p>
+        <aside 
+            :class="sideBarOpen ? 'translate-x-0' : '-translate-x-full'"
+            class="fixed inset-y-0 left-0 z-50 w-64 bg-white border-r border-gray-100 flex flex-col p-6 transition-transform duration-300 transform lg:translate-x-0 lg:sticky lg:top-0 lg:h-screen">
+            
+            <div class="flex items-center justify-between lg:justify-center gap-2 font-bold text-lg mb-10">
+                <div class="flex items-center gap-2">
+                    <img src="images/logo.png" alt="logo" class="w-8">
+                    <p>AnggaCBT</p>
+                </div>
+                <button @click="sideBarOpen = false" class="lg:hidden">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
             </div>
 
             <div class="flex flex-col gap-8 overflow-y-auto flex-1 custom-scrollbar pr-2">
                 <div>
                     <p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-4">Daily Use</p>
                     <ul class="flex flex-col gap-2">
-                        <li><a href="#" class="flex items-center gap-3 p-3 text-gray-500 hover:text-[#6436F1] font-medium transition-all"><img src="images/overview.png" alt="" class="w-5"> Overview</a></li>
-                        <li><a href="#" class="flex items-center gap-3 p-3 bg-[#2B82FE] text-white rounded-full font-medium shadow-lg shadow-blue-100"><img src="images/courses.png" alt="" class="w-5 filter brightness-0 invert"> Courses</a></li>
-                        <li><a href="#" class="flex items-center gap-3 p-3 text-gray-500 hover:text-[#6436F1] font-medium"><img src="images/certificates.png" alt="" class="w-5"> Certificates</a></li>
-                        <li><a href="#" class="flex items-center gap-3 p-3 text-gray-500 hover:text-[#6436F1] font-medium justify-between w-full"><div class="flex items-center gap-3"><img src="images/messages.png" alt="" class="w-5"> Messages</div><span class="bg-[#FF8137] text-white text-[10px] px-2 py-0.5 rounded-full">12</span></a></li>
-                        <li><a href="#" class="flex items-center gap-3 p-3 text-gray-500 hover:text-[#6436F1] font-medium"><img src="images/portfolio.png" alt="" class="w-5"> Portfolio</a></li>
+                        <li>
+                            <a href="#" class="flex items-center gap-3 p-3 text-gray-500 hover:text-[#6436F1] font-medium transition-all">
+                                <img src="images/overview.png" alt="" class="w-5"> Overview
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="flex items-center gap-3 p-3 bg-[#2B82FE] text-white rounded-full font-medium shadow-lg shadow-purple-100">
+                                <img src="images/courses.png" alt="" class="w-5"> Courses
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="flex items-center gap-3 p-3 text-gray-500 hover:text-[#6436F1] font-medium transition-all">
+                                <img src="images/certificates.png" alt="" class="w-5"> Certificates
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="flex items-center gap-3 p-3 text-gray-500 hover:text-[#6436F1] font-medium justify-between w-full">
+                                <div class="flex items-center gap-3">
+                                    <img src="images/messages.png" alt="" class="w-5"> Messages
+                                </div>
+                                <span class="bg-[#FF8137] text-white text-[10px] px-2 py-0.5 rounded-full">12</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="flex items-center gap-3 p-3 text-gray-500 hover:text-[#6436F1] font-medium transition-all">
+                                <img src="images/portfolio.png" alt="" class="w-5"> Portfolio
+                            </a>
+                        </li>
                     </ul>
                 </div>
+
                 <div>
                     <p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-4">Others</p>
                     <ul class="flex flex-col gap-2">
@@ -40,62 +72,77 @@
 
             <div class="mt-6 bg-[#121212] rounded-3xl p-4 relative overflow-hidden group">
                 <div class="relative z-10 flex items-center gap-3">
-                    <img src="images/crown.png" alt="crown" class="w-12 h-12"> 
+                    <img src="images/crown.png" alt="crown" class="w-10 h-10"> 
                     <div>
-                        <p class="text-white font-bold text-sm">Get Pro</p>
-                        <p class="text-gray-400 text-[9px]">Unlock all features</p>
+                        <p class="text-white font-bold text-xs">Get Pro</p>
+                        <p class="text-gray-400 text-[8px]">Unlock all features</p>
                     </div>
                 </div>
-                <div class="absolute -right-5 -top-5 w-20 h-20 bg-[#6436F1] blur-[40px] opacity-30"></div>
+                <div class="absolute -right-5 -top-5 w-16 h-16 bg-[#6436F1] blur-[30px] opacity-30"></div>
             </div>
         </aside>
 
-        <main class="flex-1 flex flex-col">
-            <header class="bg-white p-6 flex items-center justify-between border-b border-gray-50">
-                <div class="relative w-96">
-                    <input type="text" placeholder="Search my courses or report..." class="w-full bg-[#F8F8FA] rounded-full py-3 px-6 outline-none text-sm border border-transparent focus:border-gray-200">
-                    <button class="absolute right-2 top-1.5 bg-[#6436F1] p-2 rounded-full shadow-md shadow-purple-200">
-                        <img src="images/search.png" alt="search" class="w-4 h-4 filter brightness-0 invert">
+        <div x-show="sideBarOpen" @click="sideBarOpen = false" class="fixed inset-0 bg-black bg-opacity-50 z-40 lg:hidden"></div>
+
+        <main class="flex-1 min-w-0 flex flex-col w-full">
+            <header class="bg-white p-4 md:p-6 flex items-center justify-between border-b border-gray-50 gap-2 md:gap-4">
+                <div class="flex items-center gap-2 md:gap-4 flex-1">
+                    <button @click="sideBarOpen = true" class="md:hidden p-2 bg-gray-50 rounded-lg shrink-0">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                        </svg>
                     </button>
+                    
+                    <div class="relative w-full max-w-[160px] sm:max-w-xs md:max-w-sm lg:max-w-md">
+                        <input type="text" placeholder="Search..." 
+                            class="w-full bg-[#F8F8FA] rounded-full py-2 pl-4 pr-10 outline-none text-xs sm:text-sm border border-transparent focus:border-gray-200">
+                        <button class="absolute right-1.5 top-1 bg-[#6436F1] p-1.5 rounded-full">
+                            <img src="images/search.png" alt="search" class="w-3 h-3">
+                        </button>
+                    </div>
                 </div>
 
-                <div class="flex items-center gap-6">
-                    <div class="flex gap-3">
-                        <button class="w-10 h-10 flex items-center justify-center border border-gray-100 rounded-full hover:bg-gray-50"><img src="images/receipt.png" class="w-5"></button>
-                        <button class="w-10 h-10 flex items-center justify-center border border-gray-100 rounded-full hover:bg-gray-50"><img src="images/notification.png" class="w-5"></button>
+                <div class="flex items-center gap-2 md:gap-6 shrink-0">
+                    <div class="flex gap-1 md:gap-3">
+                        <button class="w-8 h-8 md:w-9 md:h-9 flex items-center justify-center border border-gray-100 rounded-full hover:bg-gray-50">
+                            <img src="images/receipt.png" class="w-3.5 md:w-4">
+                        </button>
+                        <button class="w-8 h-8 md:w-9 md:h-9 flex items-center justify-center border border-gray-100 rounded-full hover:bg-gray-50">
+                            <img src="images/notification.png" class="w-3.5 md:w-4">
+                        </button>
                     </div>
-                    <div class="flex items-center gap-3 border-l pl-6 border-gray-100">
+
+                    <div class="flex items-center gap-2 md:gap-3 border-l pl-2 md:pl-4 border-gray-100">
                         <div class="text-right">
-                            <p class="text-[10px] text-gray-400">Howdy</p>
-                            <p class="text-sm font-bold text-[#121212]">Fany Alqo</p>
+                            <p class="text-[10px] text-gray-400 hidden sm:block">Howdy</p>
+                            <p class="text-[11px] sm:text-sm font-bold leading-tight">Bondan Poro</p>
                         </div>
-                        <img src="images/profile_picture.png" alt="profile" class="w-10 h-10 rounded-full object-cover">
+                        <img src="images/profile_picture.png" alt="profile" class="w-8 h-8 md:w-9 md:h-9 rounded-full object-cover">
                     </div>
                 </div>
             </header>
 
-            <section class="p-8 max-w-6xl mx-auto w-full">
-                <div class="w-full max-w-[640px] ml-0 text-left">
-                    
-                    <nav class="flex items-center gap-3 text-sm text-gray-400 mb-2">
+            <section class="p-4 sm:p-6 lg:p-8 w-full max-w-6xl mx-auto">
+                <div class="w-full max-w-[640px]">
+                    <nav class="flex items-center gap-2 text-xs lg:text-sm text-gray-400 mb-2 overflow-x-auto no-scrollbar">
                         <a href="#" class="hover:text-[#121212]">Home</a>
                         <span>/</span>
-                        <a href="manageCourses.html" class="hover:text-[#121212]">Manage Courses</a>
+                        <a href="#" class="hover:text-[#121212]">Manage</a>
                         <span>/</span>
                         <span class="text-[#121212]">New Course</span>
                     </nav>
 
-                    <div class="mb-10">
-                        <h1 class="text-3xl font-extrabold text-[#121212]">New Course</h1>
-                        <p class="text-gray-400 text-sm mt-2">Provide high quality for best students</p>
+                    <div class="mb-8 lg:mb-10">
+                        <h1 class="text-2xl lg:text-3xl font-extrabold text-[#121212]">New Course</h1>
+                        <p class="text-gray-400 text-sm mt-1">Provide high quality for best students</p>
                     </div>
 
-                    <form class="flex flex-col gap-8">
-                        
+                    <form class="flex flex-col gap-6 lg:gap-8">
                         <div class="flex items-center gap-6">
-                            <div class="w-24 h-24 bg-[#F8F8FA] rounded-full border-2 border-dashed border-gray-200 flex items-center justify-center overflow-hidden">
+                            <div class="w-20 h-20 lg:w-24 lg:h-24 bg-[#F8F8FA] rounded-full border-2 border-dashed border-gray-200 flex items-center justify-center">
+                                <img src="images/gallery.png" class="w-8 opacity-20" alt="">
                             </div>
-                            <button type="button" class="bg-[#121212] text-white px-6 py-3 rounded-full font-bold text-sm hover:bg-gray-800 transition-all">
+                            <button type="button" class="bg-[#121212] text-white px-6 py-2.5 rounded-full font-bold text-sm hover:bg-gray-800">
                                 Add Icon
                             </button>
                         </div>
@@ -103,25 +150,20 @@
                         <div class="flex flex-col gap-3">
                             <label class="font-bold text-base">Course Name</label>
                             <div class="relative">
-                                <div class="absolute left-5 top-1/2 -translate-y-1/2">
-                                    <img src="images/note-favorite.png" class="w-6 h-6" alt=""> 
-                                </div>
-                                <input type="text" placeholder="Write your better course name" class="w-full bg-[#F8F8FA] rounded-full py-4 pl-14 pr-6 outline-none border border-transparent focus:border-[#6436F1] transition-all font-semibold">
+                                <div class="absolute left-5 top-1/2 -translate-y-1/2"><img src="images/note-favorite.png" class="w-6" alt=""></div>
+                                <input type="text" placeholder="Write your better course name" class="w-full bg-[#F8F8FA] rounded-full py-4 pl-14 pr-6 outline-none border border-transparent focus:border-[#6436F1] font-semibold text-sm">
                             </div>
                         </div>
 
                         <div class="flex flex-col gap-3">
                             <label class="font-bold text-base">Category</label>
                             <div class="relative">
-                                <div class="absolute left-5 top-1/2 -translate-y-1/2">
-                                    <img src="images/category.png" class="w-6 h-6" alt="">
-                                </div>
-                                <select class="w-full bg-[#F8F8FA] rounded-full py-4 pl-14 pr-10 outline-none border border-transparent focus:border-[#6436F1] appearance-none transition-all font-semibold cursor-pointer">
-                                    <option value="" disabled selected>Choose one of category</option>
+                                <div class="absolute left-5 top-1/2 -translate-y-1/2"><img src="images/category.png" class="w-6" alt=""></div>
+                                <select class="w-full bg-[#F8F8FA] rounded-full py-4 pl-14 pr-10 outline-none border border-transparent focus:border-[#6436F1] appearance-none font-semibold cursor-pointer text-sm">
+                                    <option value="" disabled selected>Choose one category</option>
                                     <option value="design">Product Design</option>
                                     <option value="dev">Web Development</option>
                                     <option value="marketing">Digital Marketing</option>
-
                                 </select>
                                 <div class="absolute right-5 top-1/2 -translate-y-1/2 pointer-events-none">
                                     <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
@@ -131,26 +173,26 @@
 
                         <div class="flex flex-col gap-3">
                             <label class="font-bold text-base">Course Type</label>
-                            <div class="grid grid-cols-3 gap-4">
-                                <label class="group cursor-pointer">
+                            <div class="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-3 gap-4">
+                                <label class="cursor-pointer">
                                     <input type="radio" name="course_type" class="hidden peer">
-                                    <div class="bg-[#F8F8FA] p-4 rounded-3xl border-2 border-transparent peer-checked:border-[#6436F1] peer-checked:bg-white transition-all flex flex-col items-center gap-3">
-                                        <img src="images/onboarding.png" class="w-full aspect-video object-contain" alt="">
-                                        <span class="font-bold text-sm">Onboarding</span>
+                                    <div class="h-full bg-[#F8F8FA] p-4 rounded-3xl border-2 border-transparent peer-checked:border-[#6436F1] peer-checked:bg-white flex flex-col items-center gap-3 text-center">
+                                        <div class="h-16 flex items-center"><img src="images/onboarding.png" class="max-h-full" alt=""></div>
+                                        <span class="font-bold text-xs lg:text-sm">Onboarding</span>
                                     </div>
                                 </label>
-                                <label class="group cursor-pointer">
+                                <label class="cursor-pointer">
                                     <input type="radio" name="course_type" class="hidden peer">
-                                    <div class="bg-[#F8F8FA] p-4 rounded-3xl border-2 border-transparent peer-checked:border-[#6436F1] peer-checked:bg-white transition-all flex flex-col items-center gap-3">
-                                        <img src="images/CBT_Module.png" class="w-full aspect-video object-contain" alt="">
-                                        <span class="font-bold text-sm">CBT Module</span>
+                                    <div class="h-full bg-[#F8F8FA] p-4 rounded-3xl border-2 border-transparent peer-checked:border-[#6436F1] peer-checked:bg-white flex flex-col items-center gap-3 text-center">
+                                        <div class="h-16 flex items-center"><img src="images/CBT_Module.png" class="max-h-full" alt=""></div>
+                                        <span class="font-bold text-xs lg:text-sm">CBT Module</span>
                                     </div>
                                 </label>
-                                <label class="group cursor-pointer">
+                                <label class="cursor-pointer">
                                     <input type="radio" name="course_type" class="hidden peer">
-                                    <div class="bg-[#F8F8FA] p-4 rounded-3xl border-2 border-transparent peer-checked:border-[#6436F1] peer-checked:bg-white transition-all flex flex-col items-center gap-3">
-                                        <img src="images/jobReady.png" class="w-full aspect-video object-contain" alt="">
-                                        <span class="font-bold text-sm">Job Ready</span>
+                                    <div class="h-full bg-[#F8F8FA] p-4 rounded-3xl border-2 border-transparent peer-checked:border-[#6436F1] peer-checked:bg-white flex flex-col items-center gap-3 text-center">
+                                        <div class="h-16 flex items-center"><img src="images/jobReady.png" class="max-h-full" alt=""></div>
+                                        <span class="font-bold text-xs lg:text-sm">Job Ready</span>
                                     </div>
                                 </label>
                             </div>
@@ -158,23 +200,23 @@
 
                         <div class="flex flex-col gap-3" x-data="{ schedule: false }">
                             <label class="font-bold text-base">Publish Date</label>
-                            <div class="grid grid-cols-2 gap-4">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                 <label class="flex items-center gap-4 p-4 bg-[#F8F8FA] rounded-2xl border-2 border-transparent cursor-pointer has-[:checked]:border-[#6436F1] has-[:checked]:bg-white group" @click="schedule = false">
                                     <input type="radio" name="publish_date" class="hidden" checked>
                                     <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center group-has-[:checked]:bg-[#6436F1]">
-                                        <img src="images/clock.png" class="w-5 h-5 group-has-[:checked]:filter group-has-[:checked]:brightness-0 group-has-[:checked]:invert" alt="">
+                                        <img src="images/clock.png" class="w-5 h-5 group-has-[:checked]:invert" alt="">
                                     </div>
                                     <span class="font-bold text-sm">Active Now</span>
                                 </label>
                                 <label class="flex items-center gap-4 p-4 bg-[#F8F8FA] rounded-2xl border-2 border-transparent cursor-pointer has-[:checked]:border-[#6436F1] has-[:checked]:bg-white group" @click="schedule = true">
                                     <input type="radio" name="publish_date" class="hidden">
                                     <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center group-has-[:checked]:bg-[#6436F1]">
-                                        <img src="images/calendar.png" class="w-5 h-5 group-has-[:checked]:filter group-has-[:checked]:brightness-0 group-has-[:checked]:invert" alt="">
+                                        <img src="images/calendar.png" class="w-5 h-5 group-has-[:checked]:invert" alt="">
                                     </div>
                                     <span class="font-bold text-sm">Schedule for later</span>
                                 </label>
                             </div>
-                            <div x-show="schedule" x-transition class="mt-2">
+                            <div x-show="schedule" x-cloak class="mt-2">
                                 <input type="date" class="w-full bg-[#F8F8FA] rounded-full py-4 px-6 outline-none border border-transparent focus:border-[#6436F1] font-semibold">
                             </div>
                         </div>
@@ -185,7 +227,7 @@
                                 <div class="absolute left-5 top-1/2 -translate-y-1/2">
                                     <img src="images/security-user.png" class="w-6 h-6" alt="">
                                 </div>
-                                <select class="w-full bg-[#F8F8FA] rounded-full py-4 pl-14 pr-10 outline-none border border-transparent focus:border-[#6436F1] appearance-none transition-all font-semibold cursor-pointer">
+                                <select class="w-full bg-[#F8F8FA] rounded-full py-4 pl-14 pr-10 outline-none border border-transparent focus:border-[#6436F1] appearance-none font-semibold cursor-pointer text-sm">
                                     <option value="" disabled selected>Choose the access type</option>
                                     <option value="public">Public (Free)</option>
                                     <option value="private">Private (Paid)</option>
@@ -196,29 +238,20 @@
                             </div>
                         </div>
 
-                        <div class="flex items-center gap-4 mt-4" x-data="{ active: false }">
-                            <button type="button" 
-                                @click="active = !active" 
-                                :class="active ? 'bg-[#2B82FE]' : 'bg-gray-200'"
-                                class="relative inline-flex h-7 w-12 items-center rounded-full focus:outline-none transition-none">
-                                <span :class="active ? 'translate-x-6' : 'translate-x-1'"
-                                    class="inline-block h-5 w-5 transform rounded-full bg-white shadow-sm transition-none"></span>
+                        <div class="flex items-start gap-4" x-data="{ active: false }">
+                            <button type="button" @click="active = !active" :class="active ? 'bg-[#2B82FE]' : 'bg-gray-200'" class="relative inline-flex h-6 w-11 shrink-0 items-center rounded-full mt-1">
+                                <span :class="active ? 'translate-x-6' : 'translate-x-1'" class="inline-block h-4 w-4 transform rounded-full bg-white"></span>
                             </button>
-                            <div class="flex flex-col">
+                            <div>
                                 <p class="font-bold text-sm">I have read terms and conditions</p>
                                 <p class="text-xs text-gray-400">Please follow the rules of our platform</p>
                             </div>
                         </div>
 
-                        <div class="flex items-center gap-4 mt-6">
-                            <button type="button" class="flex-1 bg-black text-white py-4 rounded-full font-bold text-sm hover:opacity-90 transition-all">
-                                Add to Draft
-                            </button>
-                            <button type="submit" class="flex-1 bg-[#6436F1] text-white py-4 rounded-full font-bold text-sm shadow-lg shadow-purple-100 hover:bg-[#5229D1] transition-all">
-                                Save Course
-                            </button>
+                        <div class="flex flex-col sm:flex-row gap-4 mt-4">
+                            <button type="button" class="flex-1 bg-black text-white py-4 rounded-full font-bold text-sm hover:bg-gray-800">Add to Draft</button>
+                            <button type="submit" class="flex-1 bg-[#6436F1] text-white py-4 rounded-full font-bold text-sm shadow-lg shadow-purple-100 hover:bg-[#5229D1]">Save Course</button>
                         </div>
-
                     </form>
                 </div>
             </section>
@@ -226,8 +259,12 @@
     </div>
 
     <style>
+        [x-cloak] {
+            display: none !important;
+        }
+
         ::-webkit-scrollbar {
-            width: 6px;
+        width: 6px;
         }
         ::-webkit-scrollbar-track {
             background: transparent;
