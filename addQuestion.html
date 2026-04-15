@@ -7,13 +7,21 @@
     <title>Add Question - AnggaCBT</title>
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </head>
-<body class="bg-[#FBFAFF] font-sans antialiased text-[#121212] overflow-x-hidden">
+<body class="bg-[FBFAFF] font-sans antialiased text-[#121212]" x-data="{ sideBarOpen: false }">
 
     <div class="flex min-h-screen">
-        <aside class="w-64 bg-white border-r border-gray-100 flex flex-col p-6 sticky top-0 h-screen">
-            <div class="flex items-center justify-center gap-2 font-bold text-lg mb-10">
-                <img src="images/logo.png" alt="logo" class="w-8">
-                <p>AnggaCBT</p>
+        <aside 
+            :class="sideBarOpen ? 'translate-x-0' : '-translate-x-full'"
+            class="fixed inset-y-0 left-0 z-50 w-64 bg-white border-r border-gray-100 flex flex-col p-6 transition-transform duration-300 transform lg:translate-x-0 lg:sticky lg:top-0 lg:h-screen">
+            
+            <div class="flex items-center justify-between lg:justify-center gap-2 font-bold text-lg mb-10">
+                <div class="flex items-center gap-2">
+                    <img src="images/logo.png" alt="logo" class="w-8">
+                    <p>AnggaCBT</p>
+                </div>
+                <button @click="sideBarOpen = false" class="lg:hidden">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
             </div>
 
             <div class="flex flex-col gap-8 overflow-y-auto flex-1 custom-scrollbar pr-2">
@@ -26,12 +34,12 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#" class="flex items-center gap-3 p-3 bg-[#2B82FE] text-white rounded-full font-medium shadow-lg shadow-blue-100">
-                                <img src="images/courses.png" alt="" class="w-5 filter brightness-0 invert"> Courses
+                            <a href="#" class="flex items-center gap-3 p-3 bg-[#2B82FE] text-white rounded-full font-medium shadow-lg shadow-purple-100">
+                                <img src="images/courses.png" alt="" class="w-5"> Courses
                             </a>
                         </li>
                         <li>
-                            <a href="#" class="flex items-center gap-3 p-3 text-gray-500 hover:text-[#6436F1] font-medium">
+                            <a href="#" class="flex items-center gap-3 p-3 text-gray-500 hover:text-[#6436F1] font-medium transition-all">
                                 <img src="images/certificates.png" alt="" class="w-5"> Certificates
                             </a>
                         </li>
@@ -44,7 +52,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#" class="flex items-center gap-3 p-3 text-gray-500 hover:text-[#6436F1] font-medium">
+                            <a href="#" class="flex items-center gap-3 p-3 text-gray-500 hover:text-[#6436F1] font-medium transition-all">
                                 <img src="images/portfolio.png" alt="" class="w-5"> Portfolio
                             </a>
                         </li>
@@ -64,126 +72,152 @@
 
             <div class="mt-6 bg-[#121212] rounded-3xl p-4 relative overflow-hidden group">
                 <div class="relative z-10 flex items-center gap-3">
-                    <img src="images/crown.png" alt="crown" class="w-12 h-12"> 
+                    <img src="images/crown.png" alt="crown" class="w-10 h-10"> 
                     <div>
-                        <p class="text-white font-bold text-sm">Get Pro</p>
-                        <p class="text-gray-400 text-[9px]">Unlock all features</p>
+                        <p class="text-white font-bold text-xs">Get Pro</p>
+                        <p class="text-gray-400 text-[8px]">Unlock all features</p>
                     </div>
                 </div>
-                <div class="absolute -right-5 -top-5 w-20 h-20 bg-[#6436F1] blur-[40px] opacity-30"></div>
+                <div class="absolute -right-5 -top-5 w-16 h-16 bg-[#6436F1] blur-[30px] opacity-30"></div>
             </div>
         </aside>
 
-        <main class="flex-1 flex flex-col">
-            <header class="bg-white p-6 flex items-center justify-between border-b border-gray-50">
-                <div class="relative w-96">
-                    <input type="text" placeholder="Search by report, student, etc..." class="w-full bg-[#F8F8FA] rounded-full py-3 px-6 outline-none text-sm border border-transparent focus:border-gray-200">
-                    <button class="absolute right-2 top-1.5 bg-[#6436F1] p-2 rounded-full shadow-md shadow-purple-200">
-                        <img src="images/search.png" alt="search" class="w-4 h-4 filter brightness-0 invert">
+        <div x-show="sideBarOpen" @click="sideBarOpen = false" class="fixed inset-0 bg-black bg-opacity-50 z-40 lg:hidden"></div>
+
+        <main class="flex-1 min-w-0 flex flex-col w-full">
+            <header class="bg-white p-4 md:p-6 flex items-center justify-between border-b border-gray-50 gap-2 md:gap-4">
+                <div class="flex items-center gap-2 md:gap-4 flex-1">
+                    <button @click="sideBarOpen = true" class="md:hidden p-2 bg-gray-50 rounded-lg shrink-0">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                        </svg>
                     </button>
+                    
+                    <div class="relative w-full max-w-[160px] sm:max-w-xs md:max-w-sm lg:max-w-md">
+                        <input type="text" placeholder="Search..." 
+                            class="w-full bg-[#F8F8FA] rounded-full py-2 pl-4 pr-10 outline-none text-xs sm:text-sm border border-transparent focus:border-gray-200">
+                        <button class="absolute right-1.5 top-1 bg-[#6436F1] p-1.5 rounded-full">
+                            <img src="images/search.png" alt="search" class="w-3 h-3">
+                        </button>
+                    </div>
                 </div>
 
-                <div class="flex items-center gap-6">
-                    <div class="flex items-center gap-3 border-l pl-6 border-gray-100">
+                <div class="flex items-center gap-2 md:gap-6 shrink-0">
+                    <div class="flex gap-1 md:gap-3">
+                        <button class="w-8 h-8 md:w-9 md:h-9 flex items-center justify-center border border-gray-100 rounded-full hover:bg-gray-50">
+                            <img src="images/receipt.png" class="w-3.5 md:w-4">
+                        </button>
+                        <button class="w-8 h-8 md:w-9 md:h-9 flex items-center justify-center border border-gray-100 rounded-full hover:bg-gray-50">
+                            <img src="images/notification.png" class="w-3.5 md:w-4">
+                        </button>
+                    </div>
+
+                    <div class="flex items-center gap-2 md:gap-3 border-l pl-2 md:pl-4 border-gray-100">
                         <div class="text-right">
-                            <p class="text-[10px] text-gray-400">Howdy</p>
-                            <p class="text-sm font-bold text-[#121212]">Fany Alqo</p>
+                            <p class="text-[10px] text-gray-400 hidden sm:block">Howdy</p>
+                            <p class="text-[11px] sm:text-sm font-bold leading-tight">Bondan Poro</p>
                         </div>
-                        <img src="images/profile_picture.png" alt="profile" class="w-10 h-10 rounded-full object-cover">
+                        <img src="images/profile_picture.png" alt="profile" class="w-8 h-8 md:w-9 md:h-9 rounded-full object-cover">
                     </div>
                 </div>
             </header>
 
-            <section class="p-8 w-full">
-                <nav class="flex items-center gap-3 text-sm text-gray-400 mb-8">
-                    <a href="#" class="hover:text-[#6436F1] transition-colors">Home</a>
+            <section class="p-4 sm:p-6 lg:p-8 max-w-6xl mx-auto w-full">
+                <nav class="flex items-center gap-2 text-xs sm:text-sm text-gray-400 mb-8 overflow-x-auto whitespace-nowrap pb-2">
+                    <a href="#" class="hover:text-[#6436F1]">Home</a>
                     <span>/</span>
-                    <a href="manageCourses.html" class="hover:text-[#6436F1] transition-colors">Manage Courses</a>
+                    <a href="manageCourses.html" class="hover:text-[#6436F1]">Manage Courses</a>
                     <span>/</span>
                     <span class="text-[#121212] font-semibold">Course Details</span>
                 </nav>
 
-                <div class="flex items-center gap-6 mb-8">
-                    <div class="relative">
-                        <div class="w-24 h-24 bg-[#E0E9FF] rounded-full flex items-center justify-center overflow-hidden border-[6px] border-white shadow-sm">
+                <div class="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 mb-10 text-center sm:text-left">
+                    <div class="shrink-0">
+                        <div class="w-20 h-20 sm:w-24 sm:h-24 bg-[#E0E9FF] rounded-full flex items-center justify-center overflow-hidden border-[6px] border-white shadow-sm">
                             <img src="images/BigWebDevelopment.png" alt="Course Thumbnail" class="w-full h-full object-cover">
                         </div>
                     </div>
                     <div>
-                        <h1 class="text-3xl font-extrabold text-[#121212]">Digital Marketing 101</h1>
+                        <h1 class="text-2xl sm:text-3xl font-extrabold text-[#121212]">Digital Marketing 101</h1>
+                        <p class="text-sm text-gray-400 font-medium">Create a new test for your students</p>
                     </div>
                 </div>
 
                 <form class="flex flex-col gap-8 max-w-xl">
-                    <div>
-                        <h2 class="text-xl font-bold mb-6">Add New Question</h2>
+                    <div class="p-6 sm:p-8 rounded-[32px] border border-gray-100 shadow-sm">
+                        <h2 class="text-xl font-bold mb-8">Add New Question</h2>
                         
-                        <div class="flex flex-col gap-3 mb-6">
+                        <div class="flex flex-col gap-3 mb-10">
                             <label class="font-bold text-sm text-[#121212]">Question</label>
                             <div class="relative">
                                 <div class="absolute left-5 top-1/2 -translate-y-1/2">
                                     <img src="images/note-text.png" class="w-6 h-6" alt="icon"> 
                                 </div>
-                                <input type="text" placeholder="Add your question here" 
-                                    class="w-full bg-white border-2 border-gray-200 rounded-full py-4 pl-14 pr-6 outline-none focus:border-[#6436F1] transition-all font-semibold">
+                                <input type="text" placeholder="Add your question here" value="Why is digital marketing so import?"
+                                    class="w-full bg-[#F8F8FA] border-2 border-transparent rounded-full py-4 pl-14 pr-6 outline-none focus:border-[#6436F1] focus:bg-white transition-all font-semibold">
                             </div>
                         </div>
 
                         <div class="flex flex-col gap-4">
-                            <label class="font-bold text-sm text-[#121212]">Answers</label>
+                            <label class="font-bold text-sm text-[#121212]">Answers Options</label>
                             
-                            <div class="flex items-center justify-between gap-4 bg-white border border-gray-100 rounded-full">
-                                <div class="relative flex items-center gap-4 flex-1 p-4 border-2 border-gray-200 rounded-full transition-all focus-within:border-[#6436F1] focus-within:border-2">
-                                    <img src="images/edit.png" class="w-5 h-5 ml-2" alt="icon">
-                                    <input type="text" value="To reach untouched market" class="w-full outline-none font-medium text-sm bg-transparent">
+                            <div class="flex flex-col md:flex-row items-start md:items-center gap-3 p-1">
+                                <div class="relative flex items-center gap-3 flex-1 w-full bg-[#F8F8FA] border-2 border-transparent rounded-full px-5 py-3 transition-all focus-within:border-[#6436F1] focus-within:bg-white">
+                                    <img src="images/edit.png" class="w-5 h-5 shrink-0" alt="icon">
+                                    <input type="text" name="answer_1" placeholder="Add your answer here" value="To reach untouched market" class="w-full outline-none font-medium text-sm bg-transparent">
                                 </div>
-                                <label class="flex items-center gap-2 cursor-pointer pr-4">
-                                    <input type="radio" name="correct_answer" class="hidden peer" checked>
-                                    <div class="w-5 h-5 border-2 border-gray-200 rounded-full peer-checked:bg-[#2B82FE] peer-checked:border-[#2B82FE] transition-all"></div>
-                                    <span class="text-sm font-bold text-[#121212]">Correct</span>
+                                <label class="flex items-center gap-3 cursor-pointer px-4 py-2 shrink-0 self-end md:self-center">
+                                    <span class="text-xs font-bold text-gray-400 uppercase tracking-wider md:hidden">Correct?</span>
+                                    <input type="radio" name="correct_answer" value="1" checked class="hidden peer">
+                                    <div class="w-6 h-6 border-2 border-gray-200 rounded-full peer-checked:bg-[#2B82FE] peer-checked:border-[#2B82FE] transition-all"></div>
+                                    <span class="text-sm font-bold text-[#121212] hidden md:block">Correct</span>
                                 </label>
                             </div>
 
-                            <div class="flex items-center justify-between gap-4 bg-white border border-gray-100 rounded-full">
-                                <div class="relative flex items-center gap-4 flex-1 p-4 border-2 border-gray-200 rounded-full transition-all focus-within:border-[#6436F1] focus-within:border-2">
-                                    <img src="images/edit.png" class="w-5 h-5 ml-2" alt="icon">
-                                    <input type="text" value="Because you are matter" class="w-full outline-none font-medium text-sm bg-transparent">
+                            <div class="flex flex-col md:flex-row items-start md:items-center gap-3 p-1">
+                                <div class="relative flex items-center gap-3 flex-1 w-full bg-[#F8F8FA] border-2 border-transparent rounded-full px-5 py-3 transition-all focus-within:border-[#6436F1] focus-within:bg-white">
+                                    <img src="images/edit.png" class="w-5 h-5 shrink-0" alt="icon">
+                                    <input type="text" name="answer_2" placeholder="Add your answer here" value="Because you are matter" class="w-full outline-none font-medium text-sm bg-transparent">
                                 </div>
-                                <label class="flex items-center gap-2 cursor-pointer pr-4">
-                                    <input type="radio" name="correct_answer" class="hidden peer">
-                                    <div class="w-5 h-5 border-2 border-gray-200 rounded-full peer-checked:bg-[#2B82FE] peer-checked:border-[#2B82FE] transition-all"></div>
-                                    <span class="text-sm font-bold text-[#121212]">Correct</span>
+                                <label class="flex items-center gap-3 cursor-pointer px-4 py-2 shrink-0 self-end md:self-center">
+                                    <span class="text-xs font-bold text-gray-400 uppercase tracking-wider md:hidden">Correct?</span>
+                                    <input type="radio" name="correct_answer" value="2" class="hidden peer">
+                                    <div class="w-6 h-6 border-2 border-gray-200 rounded-full peer-checked:bg-[#2B82FE] peer-checked:border-[#2B82FE] transition-all"></div>
+                                    <span class="text-sm font-bold text-[#121212] hidden md:block">Correct</span>
                                 </label>
                             </div>
 
-                            <div class="flex items-center justify-between gap-4 bg-white border border-gray-100 rounded-full">
-                                <div class="relative flex items-center gap-4 flex-1 p-4 border-2 border-gray-200 rounded-full transition-all focus-within:border-[#6436F1] focus-within:border-2">
-                                    <img src="images/edit.png" class="w-5 h-5 ml-2" alt="icon">
-                                    <input type="text" value="Write better answer option" class="w-full outline-none font-medium text-sm bg-transparent">
+                            <div class="flex flex-col md:flex-row items-start md:items-center gap-3 p-1">
+                                <div class="relative flex items-center gap-3 flex-1 w-full bg-[#F8F8FA] border-2 border-transparent rounded-full px-5 py-3 transition-all focus-within:border-[#6436F1] focus-within:bg-white">
+                                    <img src="images/edit.png" class="w-5 h-5 shrink-0" alt="icon">
+                                    <input type="text" name="answer_3" placeholder="Add your answer here" value="" class="w-full outline-none font-medium text-sm bg-transparent">
                                 </div>
-                                <label class="flex items-center gap-2 cursor-pointer pr-4">
-                                    <input type="radio" name="correct_answer" class="hidden peer">
-                                    <div class="w-5 h-5 border-2 border-gray-200 rounded-full peer-checked:bg-[#2B82FE] peer-checked:border-[#2B82FE] transition-all"></div>
-                                    <span class="text-sm font-bold text-[#121212]">Correct</span>
+                                <label class="flex items-center gap-3 cursor-pointer px-4 py-2 shrink-0 self-end md:self-center">
+                                    <span class="text-xs font-bold text-gray-400 uppercase tracking-wider md:hidden">Correct?</span>
+                                    <input type="radio" name="correct_answer" value="3" class="hidden peer">
+                                    <div class="w-6 h-6 border-2 border-gray-200 rounded-full peer-checked:bg-[#2B82FE] peer-checked:border-[#2B82FE] transition-all"></div>
+                                    <span class="text-sm font-bold text-[#121212] hidden md:block">Correct</span>
                                 </label>
                             </div>
 
-                            <div class="flex items-center justify-between gap-4 bg-white border border-gray-100 rounded-full">
-                                <div class="relative flex items-center gap-4 flex-1 p-4 border-2 border-gray-200 rounded-full transition-all focus-within:border-[#6436F1] focus-within:border-2">
-                                    <img src="images/edit.png" class="w-5 h-5 ml-2" alt="icon">
-                                    <input type="text" value="Because you are matter" class="w-full outline-none font-medium text-sm bg-transparent">
+                            <div class="flex flex-col md:flex-row items-start md:items-center gap-3 p-1">
+                                <div class="relative flex items-center gap-3 flex-1 w-full bg-[#F8F8FA] border-2 border-transparent rounded-full px-5 py-3 transition-all focus-within:border-[#6436F1] focus-within:bg-white">
+                                    <img src="images/edit.png" class="w-5 h-5 shrink-0" alt="icon">
+                                    <input type="text" name="answer_4" placeholder="Add your answer here" value="Because you are matter" class="w-full outline-none font-medium text-sm bg-transparent">
                                 </div>
-                                <label class="flex items-center gap-2 cursor-pointer pr-4">
-                                    <input type="radio" name="correct_answer" class="hidden peer">
-                                    <div class="w-5 h-5 border-2 border-gray-200 rounded-full peer-checked:bg-[#2B82FE] peer-checked:border-[#2B82FE] transition-all"></div>
-                                    <span class="text-sm font-bold text-[#121212]">Correct</span>
+                                <label class="flex items-center gap-3 cursor-pointer px-4 py-2 shrink-0 self-end md:self-center">
+                                    <span class="text-xs font-bold text-gray-400 uppercase tracking-wider md:hidden">Correct?</span>
+                                    <input type="radio" name="correct_answer" value="4" class="hidden peer">
+                                    <div class="w-6 h-6 border-2 border-gray-200 rounded-full peer-checked:bg-[#2B82FE] peer-checked:border-[#2B82FE] transition-all"></div>
+                                    <span class="text-sm font-bold text-[#121212] hidden md:block">Correct</span>
                                 </label>
                             </div>
                         </div>
                     </div>
 
-                    <div class="flex mt-4">
-                        <button type="submit" class="w-full max-w-md bg-[#6436F1] text-white py-3 rounded-full font-bold text-sm shadow-lg shadow-purple-100 hover:bg-[#5229D1] transition-all">
+                    <div class="flex flex-col sm:flex-row gap-4 items-center justify-between pb-10">
+                        <p class="text-sm text-gray-400 font-medium">Make sure only one correct answer is selected.</p>
+                        <button type="submit" class="w-full sm:w-auto min-w-[200px] bg-[#6436F1] text-white py-4 px-8 rounded-full font-bold text-sm shadow-lg shadow-purple-100 hover:bg-[#5229D1] transition-all active:scale-95">
                             Save Question
                         </button>
                     </div>
@@ -193,6 +227,9 @@
     </div>
 
     <style>
+        [x-cloak] {
+            display: none !important;
+        }
         ::-webkit-scrollbar {
             width: 6px;
         }
